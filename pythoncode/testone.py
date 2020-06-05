@@ -6,16 +6,12 @@
 # 函数式编程：无return返回值，返回None
 def func_one():
     print(5 + 6)
-
-
 result_1 = func_one()
 
 
 # 面向过程：有return返回值的情况，返回表达式的值
 def func_two():
     return 7 + 8
-
-
 result_2 = func_two()
 
 
