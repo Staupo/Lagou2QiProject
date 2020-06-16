@@ -3,6 +3,9 @@
 # @Author : Saber
 # @File   : lagou_1.py
 
+import yaml
+
+
 class Animal:
     # 初始化函数
     def __init__(self, name, color, age, sex):
@@ -20,35 +23,33 @@ class Animal:
 
 class cat(Animal):
     def __init__(self, name, color, age, sex, hair='short hair'):
-        self.name = name
-        self.color = color
-        self.age = age
-        self.sex = sex
+        super().__init__(name, color, age, sex)
         self.hair = hair
 
     def speciality(self):
-        print('I can catch mice')
+        print(f'{self.name}, {self.color}, {self.age}, {self.sex}, {self.hair}, Caught the mouse')
 
     def run(self):
         print('喵喵叫')
 
 
 class dog(Animal):
-    def __init__(self, name, color, age, sex, hair):
-        self.name = name
-        self.color = color
-        self.age = age
-        self.sex = sex
+    def __init__(self, name, color, age, sex, hair='long hair'):
+        super().__init__(name, color, age, sex)
         self.hair = hair
 
     def ability(self):
-        print('I will watch the house')
+        print(f'{self.name}, {self.color}, {self.age}, {self.sex}, {self.hair}, will watch the house')
 
 
 if __name__ == '__main__':
-    Cat = cat('saber', 'yellow', 3, 'girl')
+    with open("lagous_yml") as f:
+        datas = yaml.safe_load(f)
+
+    H_Cat = datas['cat']
+    Cat = cat(H_Cat['name'], H_Cat['color'], H_Cat['age'], H_Cat['sex'])
     Cat.speciality()
-    print(f'{Cat.name} {Cat.color} {Cat.age} {Cat.sex} {Cat.hair} "捉到了老鼠"')
-    Dog = dog('Saber', 'blue', 5, 'boy', 'Blue hair')
+
+    H_Dog = datas['dog']
+    Dog = dog(H_Cat['name'], H_Cat['color'], H_Cat['age'], H_Cat['sex'])
     Dog.ability()
-    print(f'{Dog.name} {Dog.color} {Dog.age} {Dog.sex} {Dog.hair}')

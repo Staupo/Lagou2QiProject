@@ -1,0 +1,11 @@
+cat:
+  name: saber
+  color: yello
+  age: 3
+  sex: girl
+
+dog:
+  name: caber
+  color: blue
+  age: 5
+  sex: boy
