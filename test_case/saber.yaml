@@ -1,0 +1,12 @@
+- add:
+    a: 1
+    b: 2
+  minus:
+    a: 8
+    b: 3
+  multiply:
+    a: 6
+    b: 60
+  div:
+    a: 6
+    b: 2
